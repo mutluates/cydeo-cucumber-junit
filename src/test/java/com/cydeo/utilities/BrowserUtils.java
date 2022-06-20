@@ -21,6 +21,10 @@ public class BrowserUtils {
 
     }
 
+    public static void  verifyTitle(String expectedTitle){
+        Assert.assertEquals(Driver.getDriver().getTitle(),expectedTitle);
+    }
+
     /**
      * This meyhod will accept a String as expected value and verify actual URL contains the value.
      * @param expectedInURL
@@ -43,6 +47,15 @@ public class BrowserUtils {
             actualOptions.add(each.getText());
         }
         return actualOptions;
+    }
+
+    public static void clickRadioButton(List<WebElement> list,String attributeValue){
+
+        for (WebElement each : list) {
+            if (each.getAttribute("value").equalsIgnoreCase(attributeValue)){
+                each.click();
+            }
+        }
     }
 
 }

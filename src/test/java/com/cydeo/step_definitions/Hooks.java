@@ -5,6 +5,7 @@ package com.cydeo.step_definitions;
 each scenario and each step
  */
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
@@ -29,9 +30,11 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", scenario.getName());
         }
 
-        Driver.getDriver();
+        BrowserUtils.sleep(5);
+        Driver.closeDriver();
 
         // System.out.println("==Closing browser using cucumber @After");
+        // System.out.println("===Scenario ended / Take screenshot if failed!")
     }
 
     @BeforeStep
@@ -42,6 +45,7 @@ public class Hooks {
     @AfterStep
     public void afterStep() {
         System.out.println("--------> applying tearDown using @AfterStep");
+
     }
 
 }

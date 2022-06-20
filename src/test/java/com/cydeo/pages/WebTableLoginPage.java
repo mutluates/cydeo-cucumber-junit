@@ -23,9 +23,9 @@ public class WebTableLoginPage {
     public WebElement loginButton;
 
     public void login(){
-        inputUsername.sendKeys("Test");
-        inputPassword.sendKeys("Tester");
-        loginButton.click();
+        this.inputUsername.sendKeys("Test");
+        this.inputPassword.sendKeys("Tester");
+        this.loginButton.click();
     }
 
     public void login(String username, String password){

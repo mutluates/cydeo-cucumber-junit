@@ -9,6 +9,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.Map;
+
 public class WebTable_StepDefinitions {
 
     WebTableLoginPage webTableLoginPage = new WebTableLoginPage();
@@ -22,21 +24,35 @@ public class WebTable_StepDefinitions {
     public void user_enters_username(String string) {
         webTableLoginPage.inputUsername.sendKeys(string);
     }
+
     @When("user enters password  {string}")
     public void user_enters_password(String string) {
         webTableLoginPage.inputPassword.sendKeys(string);
     }
+
     @When("user click to login button")
     public void user_click_to_login_button() {
         webTableLoginPage.loginButton.click();
     }
+
     @Then("user should see url contains orders")
     public void user_should_see_url_contains_orders() {
         BrowserUtils.verifyURLContains("orders");
     }
+
     @When("user enters  username {string} password {string} and logins")
     public void userEntersUsernamePasswordAndLogins(String username, String password) {
     webTableLoginPage.login(username,password);
+    }
+    @When("User enters below credentials")
+    public void user_enters_below_credentials(Map<String,String> credentials) {
+
+       // webTableLoginPage.inputUsername.sendKeys(credentials.get("username"));
+       // webTableLoginPage.inputPassword.sendKeys(credentials.get("password"));
+       // webTableLoginPage.loginButton.click();
+
+        webTableLoginPage.login(credentials.get("username"),credentials.get("password"));
+
     }
 
 }
