@@ -3,6 +3,7 @@ package com.cydeo.step_definitions;
 import com.cydeo.pages.BasePage;
 import com.cydeo.pages.WebTableLoginPage;
 import com.cydeo.pages.OrderPage;
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -71,14 +72,8 @@ public class Order_StepDefinitions {
     }
     @When("user selects credit card type {string}")
     public void user_selects_credit_card_type(String cardType) {
-
-        List<WebElement> list = orderPage.cardList;
-
-        for (WebElement each : list) {
-            if (each.getAttribute("value").equalsIgnoreCase(cardType)){
-                each.click();
-            }
-        }
+        // this line will loop through the list and decide which radio button to click
+        BrowserUtils.clickRadioButton(orderPage.cardList,cardType);
     }
     @When("user enters credit card number {string}")
     public void user_enters_credit_card_number(String string) {
