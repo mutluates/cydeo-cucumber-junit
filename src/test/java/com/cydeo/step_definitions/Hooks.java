@@ -30,7 +30,7 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", scenario.getName());
         }
 
-        BrowserUtils.sleep(5);
+       // BrowserUtils.sleep(5);
         Driver.closeDriver();
 
         // System.out.println("==Closing browser using cucumber @After");

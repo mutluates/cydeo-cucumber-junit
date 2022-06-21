@@ -92,6 +92,7 @@ public class Order_StepDefinitions {
     }
     @Then("user should see {string} in first row of the web table")
     public void user_should_see_in_first_row_of_the_web_table(String expectedName) {
+
         String actualName = viewAllOrdersPage.newCustomerCell.getText();
 
         Assert.assertEquals(actualName,expectedName);
