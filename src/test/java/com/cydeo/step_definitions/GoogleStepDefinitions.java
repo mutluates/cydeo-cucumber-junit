@@ -57,6 +57,14 @@ public class GoogleStepDefinitions {
     }
 
 
+    @Then("user should see {string} in the result")
+    public void user_should_see_in_the_result(String expectedCapital) {
+
+         String actualCapital = googleSearchPage.getCapital();
+         Assert.assertEquals(expectedCapital,actualCapital);
+    }
+
+
 
 
 
